@@ -1,0 +1,233 @@
+package com.example.demoportflio.controller;
+
+import com.example.demoportflio.exception.user.ApiExecptionHandler;
+import com.example.demoportflio.model.Section;
+import com.example.demoportflio.response.ResponseHandler;
+import com.example.demoportflio.service.SectionService;
+import jakarta.validation.Valid;
+import org.springframework.context.support.DefaultMessageSourceResolvable;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+@RestController
+@RequestMapping("/section/id/username")
+public class SectionController {
+    private static final Logger logger = LoggerFactory.getLogger(SectionController.class);
+
+    private final SectionService sectionService;
+
+    public SectionController(SectionService sectionService) {
+        this.sectionService = sectionService;
+    }
+
+    @PostMapping("/add")
+    public ResponseEntity<Object> createSection(@Valid @RequestBody Section section) {
+       /* if (result.hasErrors()) {
+
+            List<String> errors = result.getAllErrors()
+                    .stream()
+                    .map(DefaultMessageSourceResolvable::getDefaultMessage)
+                    .toList();
+            return ResponseEntity.badRequest().body(errors);
+        }
+        try {*/
+
+
+            return ResponseHandler.ResponseBuilder(
+                    "Section ajouté",
+                    HttpStatus.OK,
+                    sectionService.createSection(section)
+            );
+
+      /*  }catch (ApiExecptionHandler.UserNotFoundException e){
+            return ResponseHandler.ResponseBuilder(
+                    e.getMessage(),
+                    HttpStatus.NOT_FOUND,
+                    null
+            );
+
+
+        }
+
+
+        catch (org.springframework.dao.DataAccessException e) {
+            logger.error("Erreur d'accès à la base de données", e);
+            return ResponseHandler.ResponseBuilder(
+                    "Erreur interne : problème d'accès aux données",
+                    HttpStatus.INTERNAL_SERVER_ERROR,
+                    null
+            );
+
+        } catch (org.springframework.web.client.RestClientException e) {
+            logger.error("Erreur de connexion à un service externe", e);
+            return ResponseHandler.ResponseBuilder(
+                    "Erreur réseau ou service indisponible",
+                    HttpStatus.SERVICE_UNAVAILABLE,
+                    null
+            );
+
+        } catch (Exception e) {
+            logger.error("Erreur interne inattendue", e);
+            return ResponseHandler.ResponseBuilder(
+                    "Une erreur interne s'est produite",
+                    HttpStatus.INTERNAL_SERVER_ERROR,
+                    null
+            );
+        }*/
+
+
+    }
+
+
+    @PostMapping("/user/modify")
+    public ResponseEntity<Object> updateSection(@Valid @RequestBody Section section , BindingResult result) {
+       /* if (result.hasErrors()) {
+
+            List<String> errors = result.getAllErrors()
+                    .stream()
+                    .map(DefaultMessageSourceResolvable::getDefaultMessage)
+                    .toList();
+            return ResponseEntity.badRequest().body(errors);
+        }
+        try {*/
+            Section sections = sectionService.updateSection(section);
+            return ResponseHandler.ResponseBuilder(
+                    "Section modifié",
+                    HttpStatus.OK,
+                    sections
+            );
+
+      /*  }catch (ApiExecptionHandler.UserNotFoundException e){
+            return ResponseHandler.ResponseBuilder(
+                    e.getMessage(),
+                    HttpStatus.NOT_FOUND,
+                    null
+            );
+
+
+        } catch (org.springframework.dao.DataAccessException e) {
+            logger.error("Erreur d'accès à la base de données", e);
+            return ResponseHandler.ResponseBuilder(
+                    "Erreur interne : problème d'accès aux données",
+                    HttpStatus.INTERNAL_SERVER_ERROR,
+                    null
+            );
+
+         } catch (org.springframework.web.client.RestClientException e) {
+            logger.error("Erreur de connexion à un service externe", e);
+            return ResponseHandler.ResponseBuilder(
+                    "Erreur réseau ou service indisponible",
+                    HttpStatus.SERVICE_UNAVAILABLE,
+                    null
+            );
+
+        } catch (Exception e) {
+            logger.error("Erreur interne inattendue", e);
+            return ResponseHandler.ResponseBuilder(
+                    "Une erreur interne s'est produite",
+                    HttpStatus.INTERNAL_SERVER_ERROR,
+                    null
+            );
+        }*/
+
+    }
+
+    @GetMapping("/user/list")
+    public ResponseEntity<Object> getAllSection() {
+       /* try {*/
+            List<Section> sections = sectionService.getSections();
+            return ResponseHandler.ResponseBuilder(
+                    "Liste des sections",
+                    HttpStatus.OK,
+                    sections
+            );
+
+       /* } catch (org.springframework.dao.DataAccessException e) {
+            logger.error("Erreur d'accès à la base de données", e);
+            return ResponseHandler.ResponseBuilder(
+                    "Erreur interne : problème d'accès aux données",
+                    HttpStatus.INTERNAL_SERVER_ERROR,
+                    null
+            );
+
+        } catch (org.springframework.web.client.RestClientException e) {
+            logger.error("Erreur de connexion à un service externe", e);
+            return ResponseHandler.ResponseBuilder(
+                    "Erreur réseau ou service indisponible",
+                    HttpStatus.SERVICE_UNAVAILABLE,
+                    null
+            );
+
+        } catch (Exception e) {
+            logger.error("Erreur interne inattendue", e);
+            return ResponseHandler.ResponseBuilder(
+                    "Une erreur interne s'est produite",
+                    HttpStatus.INTERNAL_SERVER_ERROR,
+                    null
+            );
+        }*/
+    }
+
+
+    @GetMapping("user/{id}")
+    public ResponseEntity<Object> getDetail(@PathVariable("id") Long id) {
+       /* try {*/
+            Section section = sectionService.getSectionById(id);
+            return ResponseHandler.ResponseBuilder(
+                    "La section id" + id,
+                    HttpStatus.OK,
+                    section
+            );
+
+       /* }catch (ApiExecptionHandler.UserNotFoundException e){
+            return ResponseHandler.ResponseBuilder(
+                    e.getMessage(),
+                    HttpStatus.NOT_FOUND,
+                    null
+            );
+
+
+    }catch (org.springframework.dao.DataAccessException e) {
+            logger.error("Erreur d'accès à la base de données", e);
+            return ResponseHandler.ResponseBuilder(
+                    "Erreur interne : problème d'accès aux données",
+                    HttpStatus.INTERNAL_SERVER_ERROR,
+                    null
+            );
+
+        } catch (org.springframework.web.client.RestClientException e) {
+            logger.error("Erreur de connexion à un service externe", e);
+            return ResponseHandler.ResponseBuilder(
+                    "Erreur réseau ou service indisponible",
+                    HttpStatus.SERVICE_UNAVAILABLE,
+                    null
+            );
+
+        } catch (Exception e) {
+            logger.error("Erreur interne inattendue", e);
+            return ResponseHandler.ResponseBuilder(
+                    "Une erreur interne s'est produite",
+                    HttpStatus.INTERNAL_SERVER_ERROR,
+                    null
+            );
+        }
+
+       // return ResponseHandler.ResponseBuilder("Détail de la section", HttpStatus.OK, section);*/
+    }
+    @DeleteMapping("/user/delete/{id}")
+    public ResponseEntity<Object> deleteSection(@PathVariable("id") Long id) {
+       // try {
+            Section section = sectionService.deleteSection(id);
+            return ResponseHandler.ResponseBuilder(
+                    "Section modifié",
+                    HttpStatus.OK,
+                    section
+            );
+
+    }
+}
