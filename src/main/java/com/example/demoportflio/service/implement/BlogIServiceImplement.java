@@ -1,5 +1,6 @@
 package com.example.demoportflio.service.implement;
 
+import com.example.demoportflio.exception.user.ApiExecptionHandler;
 import com.example.demoportflio.model.Blog;
 import com.example.demoportflio.model.Section;
 import com.example.demoportflio.repository.BlogRepository;
@@ -56,7 +57,7 @@ public class BlogIServiceImplement implements BlogService {
     @Override
     public void  deleteBlog(Blog blog) {
         if (!blogRepository.existsById(   blog.getId()))  {
-            throw new RuntimeException("blog avec id " + blog.getId() + " n'existe pas");
+            throw new ApiExecptionHandler.UserNotFoundException("blog avec id " + blog.getId() + " n'existe pas");
         }
       blogRepository.delete(blog);
 
