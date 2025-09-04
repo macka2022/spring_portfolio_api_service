@@ -36,22 +36,14 @@ public class Section {
         Certifications, Partenaire, Blogs , Playlist
     }
 
+
     @ManyToOne
     @JoinColumn(name = "user_id")
     @NotNull(message = "l'id user est requis")
     private User user;
-    private Type types;
-    enum Type{
-        CV, PORTFOLIO, BOTH
-    }
 
-    public Type getTypes() {
-        return types;
-    }
 
-    public void setTypes(Type types) {
-        this.types = types;
-    }
+
     // Getters et Setters
 
     public Long getId() {

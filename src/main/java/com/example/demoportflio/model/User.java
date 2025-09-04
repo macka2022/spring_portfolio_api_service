@@ -27,6 +27,8 @@ public class User {
     @Size(min = 4, max = 50)
     private String name;
 
+    private boolean active;
+
 
     @NotBlank(message = "Le mot de passe est obligatoire")
     @Size(min = 8, max = 20)
@@ -51,6 +53,14 @@ public class User {
     @NotBlank(message = "La localisation est obligatoire")
     @Size(min = 2, max = 100)
     private String localisation;
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
 
     public Long getId() {
         return id;

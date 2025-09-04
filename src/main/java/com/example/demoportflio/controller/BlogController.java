@@ -16,8 +16,11 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/blog")
 public class BlogController {
-    BlogService  blogService;
+  private final  BlogService  blogService;
 
+    public BlogController(BlogService blogService) {
+        this.blogService = blogService;
+    }
 
     @PostMapping("/add")
     public ResponseEntity<Object> addBlog(@Valid  @RequestBody Blog blog) {

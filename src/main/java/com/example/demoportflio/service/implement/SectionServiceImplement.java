@@ -53,16 +53,8 @@ public class SectionServiceImplement implements SectionService {
     @Override
     public Section updateSection(Section section) {
         if (!sectionRepository.existsById( section.getId()) ){
-            throw new RuntimeException("Section avec id " + section.getId() + " n'existe pas");
+            throw new ApiExecptionHandler.UserNotFoundException("Section avec id " + section.getId() + " n'existe pas");
         }
-
-      /*  if (section.getUser() != null && section.getUser().getId() != 0) {
-            User user = userRepository.findById(Integer.toString(section.getUser().getId()))
-                    .orElseThrow(() -> new ApiExecptionHandler.UserNotFoundException("Utilisateur avec id " + section.getUser().getId() + " introuvable"));
-            section.setUser(user);
-        } else {
-            throw new RuntimeException("L'utilisateur est requis pour la section.");
-        }*/
 
         return sectionRepository.save(section);
     }

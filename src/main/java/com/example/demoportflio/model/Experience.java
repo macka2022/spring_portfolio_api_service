@@ -4,11 +4,12 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import lombok.Getter;
+
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 
 @Entity
@@ -56,11 +57,11 @@ public class Experience {
     @NotBlank(message = "Titre requis")
     private String title;
 
-    @Temporal(TemporalType.DATE)
-    private Date dateDebut;
+
+    private LocalDate dateDebut;
       @NotNull(message = "La date est requise")
-    @Temporal(TemporalType.DATE)
-    private Date dateFin;
+
+    private LocalDate dateFin;
       @Size(min = 50, max =400,message = "Description est entre 50/350")
      @NotBlank(message = "Description requise")
     @Column(columnDefinition = "TEXT") // For long descriptions
@@ -170,19 +171,19 @@ public class Experience {
         this.title = title;
     }
 
-    public Date getDateDebut() {
+    public LocalDate getDateDebut() {
         return dateDebut;
     }
 
-    public void setDateDebut(Date dateDebut) {
+    public void setDateDebut(LocalDate dateDebut) {
         this.dateDebut = dateDebut;
     }
 
-    public Date getDateFin() {
+    public LocalDate getDateFin() {
         return dateFin;
     }
 
-    public void setDateFin(Date dateFin) {
+    public void setDateFin(LocalDate dateFin) {
         this.dateFin = dateFin;
     }
 

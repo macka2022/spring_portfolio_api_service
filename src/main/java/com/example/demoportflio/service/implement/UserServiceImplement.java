@@ -7,7 +7,7 @@ import com.example.demoportflio.repository.UserRepository;
 import com.example.demoportflio.service.UserService;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
+
 import java.util.List;
 
 @Service
@@ -36,15 +36,13 @@ public class UserServiceImplement implements UserService {
 
     @Override
     public User activeDesactive(User user) {
-        return null;
+        User existingUser = userRepository.findById(user.getId())
+                .orElseThrow(() -> new ApiExecptionHandler.UserNotFoundException("Utilisateur non trouvé"));
+        existingUser.setActive(!existingUser.isActive());
+        return userRepository.save(existingUser);
     }
 
-   /* public  getUserId(String id){
-        if (userRepository.findAllById(Collections.singleton(id)).isEmpty())
-            throw new UserNotFoundException("User not found" );
 
-        return userRepository.findAllById(Collections.singleton(id)).get();
-    }*/
 
 }
 

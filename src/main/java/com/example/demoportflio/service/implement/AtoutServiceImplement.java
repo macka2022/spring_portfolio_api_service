@@ -32,20 +32,26 @@ public class AtoutServiceImplement  implements AtoutService {
 
     @Override
     public Atout updateAtout(Atout atout) {
-        if (!autoutRepository.existsById(   atout.getId())) {
-            throw new ApiExecptionHandler.UserNotFoundException("Section avec id " + atout.getId() + " n'existe pas");
+        if (!autoutRepository.existsById(atout.getId())) {
+            throw new ApiExecptionHandler.UserNotFoundException(
+                    "Atout avec id " + atout.getId() + " n'existe pas");
         }
         return autoutRepository.save(atout);
     }
 
     @Override
     public Atout deleteAtout(Long id) {
-        Atout atout=autoutRepository.findById(id)
-                .orElseThrow(() -> new ApiExecptionHandler.UserNotFoundException("La section avec id " + id + " est introuvable.") );
+        Atout atout = autoutRepository.findById(id)
+                .orElseThrow(() -> new ApiExecptionHandler.UserNotFoundException(
+                        "Atout avec id " + id + " est introuvable."
+                ));
+
         autoutRepository.delete(atout);
         return atout;
 
     }
+
+
 
     @Override
     public Atout addAtout(Atout to) {

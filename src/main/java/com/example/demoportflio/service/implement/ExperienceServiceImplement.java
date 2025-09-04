@@ -120,9 +120,17 @@ public class ExperienceServiceImplement  implements ExperienceService {
 
     @Override
     public Experience updateExperience(Experience experience) {
-        if (!sectionRepository.existsById( experience.getId())){
-            throw new RuntimeException("Section avec id " + experience.getId() + " n'existe pas");
+        if (!experienceRepository.existsById(experience.getId())) {
+            throw new ApiExecptionHandler.UserNotFoundException(
+                    "Expérience avec id " + experience.getId() + " n'existe pas");
         }
+
+        if (experience.getSection() != null &&
+                !sectionRepository.existsById(experience.getSection().getId())) {
+            throw new ApiExecptionHandler.UserNotFoundException(
+                    "Section avec id " + experience.getSection().getId() + " n'existe pas");
+        }
+
         return experienceRepository.save(experience);
     }
 

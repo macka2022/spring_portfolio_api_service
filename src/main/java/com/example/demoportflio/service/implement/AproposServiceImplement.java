@@ -51,16 +51,24 @@ public class AproposServiceImplement implements AproposService {
 
     @Override
     public Apropos updateApropos(Apropos apropos) {
-        if (!sectionRepository.existsById(apropos.getId() )) {
-            throw new ApiExecptionHandler.UserNotFoundException("Section avec id " + apropos.getId() + " n'existe pas");
+        Apropos existing = aproposRepository.findById(apropos.getId())
+                .orElseThrow(() -> new ApiExecptionHandler.UserNotFoundException(
+                        "Apropos avec id " + apropos.getId() + " n'existe pas"));
+
+        // Vérifier que la Section associée existe (si fournie)
+        if (apropos.getSection() != null && apropos.getSection().getId() != null) {
+            Section section = sectionRepository.findById(apropos.getSection().getId())
+                    .orElseThrow(() -> new ApiExecptionHandler.UserNotFoundException(
+                            "Section avec id " + apropos.getSection().getId() + " n'existe pas"));
+            existing.setSection(section);
         }
-        return aproposRepository.save(apropos);
+        return aproposRepository.save(existing);
     }
 
     @Override
     public Apropos deleteApropos(Long id) {
         Apropos apropos = aproposRepository.findById(id)
-                .orElseThrow(() -> new ApiExecptionHandler.UserNotFoundException("Utilisateur introuvable"));
+                .orElseThrow(() -> new ApiExecptionHandler.UserNotFoundException("Apropos avec id " + id + " introuvable"));
         aproposRepository.delete(apropos);
         return apropos;
     }
