@@ -61,10 +61,10 @@ jobs:
       - name: SonarQube Scan (Quality + Audit)
         env:
           SONAR_TOKEN: ${{ secrets.TOKEN_SONAR }}
-        run: mvn sonar:sonar \
+        run: mvn clean verify sonar:sonar \
           -Dsonar.projectKey=demoportflio \
           -Dsonar.host.url=https://sonarcloud.io \
-          -Dsonar.login=${{ secrets.TOKEN_SONAR }}
+          -Dsonar.login=$SONAR_TOKEN
 
   security-check:
     name: Security Analysis
