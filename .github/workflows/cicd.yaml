@@ -1,7 +1,7 @@
 env:
   SPRING_DATASOURCE_URL: ${{secrets.SPRING_DATASOURCE_URL}}
   SPRING_DATASOURCE_USERNAME: ${{secrets.SPRING_DATASOURCE_USERNAME}}
-  SPRING_DATASOURCE_PASSWORD: ${{ secrets.SPRING_DATASOURCE_URL }}
+  SPRING_DATASOURCE_PASSWORD: ${{ secrets.SPRING_DATASOURCE_PASSWORD }}
 
 name: CI-CD Spring Boot Full
 
@@ -60,11 +60,11 @@ jobs:
 
       - name: SonarQube Scan (Quality + Audit)
         env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.TOKEN_SONAR }}
         run: mvn sonar:sonar \
           -Dsonar.projectKey=demoportflio \
           -Dsonar.host.url=https://sonarcloud.io \
-          -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+          -Dsonar.login=${{ secrets.TOKEN_SONAR }}
 
   security-check:
     name: Security Analysis
