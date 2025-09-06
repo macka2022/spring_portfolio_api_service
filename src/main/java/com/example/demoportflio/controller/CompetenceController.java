@@ -5,6 +5,7 @@ import com.example.demoportflio.model.Competence;
 
 import com.example.demoportflio.response.ResponseHandler;
 import com.example.demoportflio.service.CompetenceService;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,7 +19,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/competence/id/username")
 public class CompetenceController  {
-
+    @SuppressFBWarnings(value = "EI_EXPOSE_REP2")
     private final CompetenceService competenceService;
 
     public CompetenceController(CompetenceService competenceService) {

@@ -4,6 +4,7 @@ import com.example.demoportflio.model.Hobbies;
 
 import com.example.demoportflio.response.ResponseHandler;
 import com.example.demoportflio.service.HobbiesService;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import jakarta.validation.Valid;
 
 import org.springframework.http.HttpStatus;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/hobbies")
 public class HobbiesController {
+    @SuppressFBWarnings(value = "EI_EXPOSE_REP2")
     private final HobbiesService hobbiesService;
 
     public HobbiesController(HobbiesService hobbiesService) {

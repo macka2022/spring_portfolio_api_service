@@ -4,6 +4,7 @@ import com.example.demoportflio.model.Certification;
 
 import com.example.demoportflio.response.ResponseHandler;
 import com.example.demoportflio.service.CertificationService;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import jakarta.validation.Valid;
 
 
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("certification/id/username")
 public class CertificationController {
-
+    @SuppressFBWarnings(value = "EI_EXPOSE_REP2")
     private final CertificationService certificationService;
 
     public CertificationController(final CertificationService certificationService) {

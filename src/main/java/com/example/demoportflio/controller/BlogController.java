@@ -5,6 +5,7 @@ import com.example.demoportflio.model.Blog;
 
 import com.example.demoportflio.response.ResponseHandler;
 import com.example.demoportflio.service.BlogService;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import jakarta.validation.Valid;
 
 import org.springframework.http.HttpStatus;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/blog")
 public class BlogController {
 
+    @SuppressFBWarnings(value = "EI_EXPOSE_REP2")
   private final  BlogService  blogService;
 
     public BlogController(final BlogService blogService) {

@@ -4,6 +4,7 @@ package com.example.demoportflio.controller;
 import com.example.demoportflio.model.Langues;
 import com.example.demoportflio.response.ResponseHandler;
 import com.example.demoportflio.service.LanguesService;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/langues")
 public class LanguesController {
+    @SuppressFBWarnings(value = "EI_EXPOSE_REP2")
     private  final LanguesService languesService;
 
     public LanguesController(LanguesService languesService) {

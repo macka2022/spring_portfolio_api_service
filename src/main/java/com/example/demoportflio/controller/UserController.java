@@ -7,6 +7,7 @@ import com.example.demoportflio.model.User;
 import com.example.demoportflio.response.ResponseHandler;
 import com.example.demoportflio.service.UserService;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,6 +22,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/user")
 public class UserController {
+    @SuppressFBWarnings(value = "EI_EXPOSE_REP2")
     private final UserService userService;
 
     public UserController(UserService userService) {

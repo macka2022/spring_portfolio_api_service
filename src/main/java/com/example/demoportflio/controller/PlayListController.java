@@ -4,6 +4,7 @@ import com.example.demoportflio.model.PlayList;
 import com.example.demoportflio.response.ResponseHandler;
 import com.example.demoportflio.service.PlayListService;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/playlist")
  public class  PlayListController{
+    @SuppressFBWarnings(value = "EI_EXPOSE_REP2")
     private final PlayListService playListService;
 
     public PlayListController(PlayListService playListService) {

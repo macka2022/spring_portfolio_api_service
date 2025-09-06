@@ -4,6 +4,7 @@ package com.example.demoportflio.controller;
 import com.example.demoportflio.model.Partenaire;
 import com.example.demoportflio.response.ResponseHandler;
 import com.example.demoportflio.service.PartenaireService;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import jakarta.validation.Valid;
 
 import org.springframework.http.HttpStatus;
@@ -19,7 +20,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/partenaires")
 public class PartenaireController {
-
+    @SuppressFBWarnings(value = "EI_EXPOSE_REP2")
     private final PartenaireService partenaireService;
 
 

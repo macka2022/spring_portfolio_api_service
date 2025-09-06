@@ -2,6 +2,7 @@ package com.example.demoportflio.controller;
 import com.example.demoportflio.model.Temoignage;
 import com.example.demoportflio.response.ResponseHandler;
 import com.example.demoportflio.service.TemoignageService;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController("/temoignages")
 @RequestMapping()
 public class TemoignageController {
+    @SuppressFBWarnings(value = "EI_EXPOSE_REP2")
     private final TemoignageService temoignageService;
 
     public TemoignageController(TemoignageService temoignageService) {

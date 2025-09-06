@@ -5,6 +5,7 @@ import com.example.demoportflio.model.Formation;
 import com.example.demoportflio.response.ResponseHandler;
 
 import com.example.demoportflio.service.FormationService;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import jakarta.validation.Valid;
 
 
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/formation")
 public class FormationController {
+    @SuppressFBWarnings(value = "EI_EXPOSE_REP2")
     private final FormationService formationService;
 
     public FormationController(FormationService formationService) {

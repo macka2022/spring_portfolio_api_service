@@ -4,6 +4,7 @@ import com.example.demoportflio.model.Experience;
 
 import com.example.demoportflio.response.ResponseHandler;
 import com.example.demoportflio.service.ExperienceService;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import jakarta.validation.Valid;
 
 
@@ -17,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/experience/id/username")
 public class ExperienceController {
-
+    @SuppressFBWarnings(value = "EI_EXPOSE_REP2")
     private final ExperienceService experienceService;
 
     public ExperienceController(ExperienceService experienceService) {
