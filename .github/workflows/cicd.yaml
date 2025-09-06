@@ -64,7 +64,7 @@ jobs:
         run: mvn clean verify sonar:sonar \
           -Dsonar.projectKey=demoportflio \
           -Dsonar.host.url=https://sonarcloud.io \
-          -Dsonar.login=$TOKEN_SONAR
+          -Dsonar.login=$SONAR_TOKEN
 
   security-check:
     name: Security Analysis
