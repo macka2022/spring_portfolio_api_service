@@ -29,24 +29,24 @@ public class PartenaireController {
 
     @PostMapping("/add")
     public ResponseEntity<Object> createConnaissance(@Valid  @RequestBody Partenaire connaissance){
-            return ResponseHandler.ResponseBuilder("Connaissance crée", HttpStatus.OK, partenaireService.saveConnaissance(connaissance));
+            return ResponseHandler.responseBuilder("Connaissance crée", HttpStatus.OK, partenaireService.saveConnaissance(connaissance));
     }
     @PostMapping("/update")
     public ResponseEntity<Object> updateConnaissance(@Valid @RequestBody Partenaire connaissance){
-        return ResponseHandler.ResponseBuilder("Modifie avec succes", HttpStatus.OK,  partenaireService.updateConnaissance(connaissance));
+        return ResponseHandler.responseBuilder("Modifie avec succes", HttpStatus.OK,  partenaireService.updateConnaissance(connaissance));
     }
     @GetMapping("/list")
     public ResponseEntity<Object> getAllConnaissances(){
-        return ResponseHandler.ResponseBuilder("Partenaires listés", HttpStatus.OK,  partenaireService.getConnaissances());
+        return ResponseHandler.responseBuilder("Partenaires listés", HttpStatus.OK,  partenaireService.getConnaissances());
     }
 
     @GetMapping("/liste/{id}")
     public ResponseEntity<Object> getConnaissanceById(@PathVariable Long id){
-            return ResponseHandler.ResponseBuilder("Détail de la section", HttpStatus.OK, partenaireService.getConnaissanceById(id));
+            return ResponseHandler.responseBuilder("Détail de la section", HttpStatus.OK, partenaireService.getConnaissanceById(id));
         }
         @DeleteMapping("/delete/{id}")
     public ResponseEntity<Object> deleteConnaissance(@PathVariable Long id){
-                return  ResponseHandler.ResponseBuilder("Supprime de la section", HttpStatus.OK, partenaireService.deleteConnaissance(id));
+                return  ResponseHandler.responseBuilder("Supprime de la section", HttpStatus.OK, partenaireService.deleteConnaissance(id));
         }
     }
 

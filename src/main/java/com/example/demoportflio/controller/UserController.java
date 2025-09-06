@@ -21,8 +21,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/user")
 public class UserController {
-    private UserService userService;
-    private static final Logger logger = LoggerFactory.getLogger(UserController.class);
+    private final UserService userService;
+
     public UserController(UserService userService) {
         //
         this.userService = userService;
@@ -42,16 +42,16 @@ public class UserController {
         }
 
         try {
-            return ResponseHandler.ResponseBuilder("Ajouté utilisateur", HttpStatus.OK, userService.CreateUser(user) );
+            return ResponseHandler.responseBuilder("Ajouté utilisateur", HttpStatus.OK, userService.CreateUser(user) );
         } catch (ApiExecptionHandler.UserNotFoundException e) {
-            return ResponseHandler.ResponseBuilder(
+            return ResponseHandler.responseBuilder(
                     e.getMessage(),
                     HttpStatus.NOT_FOUND,
                     null
             );
         } catch (org.springframework.dao.DataAccessException e) {
             logger.error("Erreur d'accès à la base de données", e);
-            return ResponseHandler.ResponseBuilder(
+            return ResponseHandler.responseBuilder(
                     "Erreur interne : problème d'accès aux données",
                     HttpStatus.INTERNAL_SERVER_ERROR,
                     null
@@ -59,19 +59,19 @@ public class UserController {
 
         } catch (org.springframework.web.client.RestClientException e) {
             logger.error("Erreur de connexion à un service externe", e);
-            return ResponseHandler.ResponseBuilder(
+            return ResponseHandler.responseBuilder(
                     "Erreur réseau ou service indisponible",
                     HttpStatus.SERVICE_UNAVAILABLE,
                     null
             );
         } catch (Exception e) {
             logger.error("Erreur interne inattendue", e);
-            return ResponseHandler.ResponseBuilder(
+            return ResponseHandler.responseBuilder(
                     "Une erreur interne s'est produite",
                     HttpStatus.INTERNAL_SERVER_ERROR,
                     null);
         }*/
-        return ResponseHandler.ResponseBuilder("Ajouté utilisateur", HttpStatus.OK, userService.CreateUser(user) );
+        return ResponseHandler.responseBuilder("Ajouté utilisateur", HttpStatus.OK, userService.CreateUser(user) );
     }
 
 
@@ -79,16 +79,16 @@ public class UserController {
     public ResponseEntity<Object> listUser() {
 
         /*try {
-            return ResponseHandler.ResponseBuilder("Ajouté utilisateur", HttpStatus.OK, userService.listUser() );
+            return ResponseHandler.responseBuilder("Ajouté utilisateur", HttpStatus.OK, userService.listUser() );
         } catch (ApiExecptionHandler.UserNotFoundException e) {
-            return ResponseHandler.ResponseBuilder(
+            return ResponseHandler.responseBuilder(
                     e.getMessage(),
                     HttpStatus.NOT_FOUND,
                     null
             );
         } catch (org.springframework.dao.DataAccessException e) {
             logger.error("Erreur d'accès à la base de données", e);
-            return ResponseHandler.ResponseBuilder(
+            return ResponseHandler.responseBuilder(
                     "Erreur interne : problème d'accès aux données",
                     HttpStatus.INTERNAL_SERVER_ERROR,
                     null
@@ -96,14 +96,14 @@ public class UserController {
 
         } catch (org.springframework.web.client.RestClientException e) {
             logger.error("Erreur de connexion à un service externe", e);
-            return ResponseHandler.ResponseBuilder(
+            return ResponseHandler.responseBuilder(
                     "Erreur réseau ou service indisponible",
                     HttpStatus.SERVICE_UNAVAILABLE,
                     null
             );
         } catch (Exception e) {
             logger.error("Erreur interne inattendue", e);
-            return ResponseHandler.ResponseBuilder(
+            return ResponseHandler.responseBuilder(
                     "Une erreur interne s'est produite",
                     HttpStatus.INTERNAL_SERVER_ERROR,
                     null);
@@ -111,6 +111,6 @@ public class UserController {
     }*/
 
 
-        return ResponseHandler.ResponseBuilder("Liste utilisateur", HttpStatus.OK, userService.listUser());
+        return ResponseHandler.responseBuilder("Liste utilisateur", HttpStatus.OK, userService.listUser());
     }
 }

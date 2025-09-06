@@ -12,7 +12,7 @@ import java.util.Map;
 @RestControllerAdvice
 public class ResponseHandler {
 
-    public static ResponseEntity<Object> ResponseBuilder(
+    public static ResponseEntity<Object> responseBuilder(
             String message, HttpStatus httpStatus, Object responseObject
     ){
         Map<String, Object> response = new HashMap<>();
@@ -28,13 +28,13 @@ public class ResponseHandler {
         ex.getBindingResult().getFieldErrors()
                 .forEach(error -> errors.put(error.getField(), error.getDefaultMessage()));
 
-        return ResponseHandler.ResponseBuilder("Erreur de validation", HttpStatus.BAD_REQUEST, errors);
+        return ResponseHandler.responseBuilder("Erreur de validation", HttpStatus.BAD_REQUEST, errors);
     }
 
     // 404 Not Found
     @ExceptionHandler(ApiExecptionHandler.UserNotFoundException.class)
     public ResponseEntity<Object> handleUserNotFound(ApiExecptionHandler.UserNotFoundException ex) {
-        return ResponseHandler.ResponseBuilder(ex.getMessage(), HttpStatus.NOT_FOUND, null);
+        return ResponseHandler.responseBuilder(ex.getMessage(), HttpStatus.NOT_FOUND, null);
     }
 
 
@@ -42,14 +42,14 @@ public class ResponseHandler {
     // 409 Conflict - utilisateur déjà existant
     @ExceptionHandler(ApiExecptionHandler.UserAlreadyExistsException.class)
     public ResponseEntity<Object> handleUserAlreadyExists(ApiExecptionHandler.UserAlreadyExistsException ex) {
-        return ResponseHandler.ResponseBuilder(ex.getMessage(), HttpStatus.CONFLICT, null);
+        return ResponseHandler.responseBuilder(ex.getMessage(), HttpStatus.CONFLICT, null);
     }
 
     // 500 Internal Server Error - autres exceptions
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Object> handleGlobalException(Exception ex) {
-        return ResponseHandler.ResponseBuilder("Erreur interne du serveur : " + ex.getMessage(),
+        return ResponseHandler.responseBuilder("Erreur interne du serveur : " + ex.getMessage(),
                 HttpStatus.INTERNAL_SERVER_ERROR, null);
     }
 

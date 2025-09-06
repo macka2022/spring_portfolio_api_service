@@ -26,27 +26,27 @@ public class ExperienceController {
 
     @PostMapping("/add")
     public ResponseEntity<Object> createExperience(@Valid  @RequestBody Experience experience) {
-            return ResponseHandler.ResponseBuilder("Experience créée", HttpStatus.CREATED, experienceService.createExperience(experience));
+            return ResponseHandler.responseBuilder("Experience créée", HttpStatus.CREATED, experienceService.createExperience(experience));
     }
 
 
     @PostMapping("/modify")
     public ResponseEntity<Object> updateExperience(@Valid @RequestBody Experience experience) {
 
-            return ResponseHandler.ResponseBuilder("Experiences", HttpStatus.CREATED,
+            return ResponseHandler.responseBuilder("Experiences", HttpStatus.CREATED,
                     experienceService.updateExperience(experience));
     }
 
     @GetMapping("list/{id}")
     public ResponseEntity<Object> getExperienceDetail(@PathVariable("id") Long id) {
 
-            return ResponseHandler.ResponseBuilder("Experience n'existe pas", HttpStatus.OK, experienceService.getExperienceById(id));
+            return ResponseHandler.responseBuilder("Experience n'existe pas", HttpStatus.OK, experienceService.getExperienceById(id));
 
     }
 
     @GetMapping("list/{type}")
     public ResponseEntity<Object> findByType(@PathVariable("type") String type) {
-        return ResponseHandler.ResponseBuilder("Listes experiences", HttpStatus.OK, experienceService.findByType(type));
+        return ResponseHandler.responseBuilder("Listes experiences", HttpStatus.OK, experienceService.findByType(type));
 
     }
 
@@ -54,14 +54,14 @@ public class ExperienceController {
     @GetMapping("/list")
     public ResponseEntity<Object> getExperienceAll() {
 
-            return ResponseHandler.ResponseBuilder("Apropos n'existe pas&", HttpStatus.OK, experienceService.getExperiences());
+            return ResponseHandler.responseBuilder("Apropos n'existe pas&", HttpStatus.OK, experienceService.getExperiences());
 
     }
 
 
     @DeleteMapping("/delete/{idGroup}")
     public ResponseEntity<Object> DeleteExperience(@PathVariable String idGroup) {
-            return ResponseHandler.ResponseBuilder("Experience n'existe pas", HttpStatus.OK, experienceService.deleteExperience(idGroup));
+            return ResponseHandler.responseBuilder("Experience n'existe pas", HttpStatus.OK, experienceService.deleteExperience(idGroup));
 
     }
 

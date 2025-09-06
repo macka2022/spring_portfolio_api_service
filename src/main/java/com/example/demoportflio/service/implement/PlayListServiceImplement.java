@@ -11,8 +11,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 @Service
 public class PlayListServiceImplement implements PlayListService {
-     PlayListRpository playListRpository;
-     SectionRepository sectionRepository;
+   private  final PlayListRpository  playListRpository;
+   private final   SectionRepository sectionRepository;
 
     public PlayListServiceImplement(PlayListRpository playListRpository, SectionRepository sectionRepository) {
         this.playListRpository = playListRpository;

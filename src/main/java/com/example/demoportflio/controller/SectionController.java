@@ -38,14 +38,14 @@ public class SectionController {
         try {*/
 
 
-            return ResponseHandler.ResponseBuilder(
+            return ResponseHandler.responseBuilder(
                     "Section ajouté",
                     HttpStatus.OK,
                     sectionService.createSection(section)
             );
 
       /*  }catch (ApiExecptionHandler.UserNotFoundException e){
-            return ResponseHandler.ResponseBuilder(
+            return ResponseHandler.responseBuilder()(
                     e.getMessage(),
                     HttpStatus.NOT_FOUND,
                     null
@@ -57,7 +57,7 @@ public class SectionController {
 
         catch (org.springframework.dao.DataAccessException e) {
             logger.error("Erreur d'accès à la base de données", e);
-            return ResponseHandler.ResponseBuilder(
+            return ResponseHandler.responseBuilder()(
                     "Erreur interne : problème d'accès aux données",
                     HttpStatus.INTERNAL_SERVER_ERROR,
                     null
@@ -65,7 +65,7 @@ public class SectionController {
 
         } catch (org.springframework.web.client.RestClientException e) {
             logger.error("Erreur de connexion à un service externe", e);
-            return ResponseHandler.ResponseBuilder(
+            return ResponseHandler.responseBuilder()(
                     "Erreur réseau ou service indisponible",
                     HttpStatus.SERVICE_UNAVAILABLE,
                     null
@@ -73,7 +73,7 @@ public class SectionController {
 
         } catch (Exception e) {
             logger.error("Erreur interne inattendue", e);
-            return ResponseHandler.ResponseBuilder(
+            return ResponseHandler.responseBuilder()(
                     "Une erreur interne s'est produite",
                     HttpStatus.INTERNAL_SERVER_ERROR,
                     null
@@ -96,14 +96,14 @@ public class SectionController {
         }
         try {*/
             Section sections = sectionService.updateSection(section);
-            return ResponseHandler.ResponseBuilder(
+            return ResponseHandler.responseBuilder(
                     "Section modifié",
                     HttpStatus.OK,
                     sections
             );
 
       /*  }catch (ApiExecptionHandler.UserNotFoundException e){
-            return ResponseHandler.ResponseBuilder(
+            return ResponseHandler.responseBuilder()(
                     e.getMessage(),
                     HttpStatus.NOT_FOUND,
                     null
@@ -112,7 +112,7 @@ public class SectionController {
 
         } catch (org.springframework.dao.DataAccessException e) {
             logger.error("Erreur d'accès à la base de données", e);
-            return ResponseHandler.ResponseBuilder(
+            return ResponseHandler.responseBuilder()(
                     "Erreur interne : problème d'accès aux données",
                     HttpStatus.INTERNAL_SERVER_ERROR,
                     null
@@ -120,7 +120,7 @@ public class SectionController {
 
          } catch (org.springframework.web.client.RestClientException e) {
             logger.error("Erreur de connexion à un service externe", e);
-            return ResponseHandler.ResponseBuilder(
+            return ResponseHandler.responseBuilder()(
                     "Erreur réseau ou service indisponible",
                     HttpStatus.SERVICE_UNAVAILABLE,
                     null
@@ -128,7 +128,7 @@ public class SectionController {
 
         } catch (Exception e) {
             logger.error("Erreur interne inattendue", e);
-            return ResponseHandler.ResponseBuilder(
+            return ResponseHandler.responseBuilder()(
                     "Une erreur interne s'est produite",
                     HttpStatus.INTERNAL_SERVER_ERROR,
                     null
@@ -141,7 +141,7 @@ public class SectionController {
     public ResponseEntity<Object> getAllSection() {
        /* try {*/
             List<Section> sections = sectionService.getSections();
-            return ResponseHandler.ResponseBuilder(
+            return ResponseHandler.responseBuilder(
                     "Liste des sections",
                     HttpStatus.OK,
                     sections
@@ -149,7 +149,7 @@ public class SectionController {
 
        /* } catch (org.springframework.dao.DataAccessException e) {
             logger.error("Erreur d'accès à la base de données", e);
-            return ResponseHandler.ResponseBuilder(
+            return ResponseHandler.responseBuilder()(
                     "Erreur interne : problème d'accès aux données",
                     HttpStatus.INTERNAL_SERVER_ERROR,
                     null
@@ -157,7 +157,7 @@ public class SectionController {
 
         } catch (org.springframework.web.client.RestClientException e) {
             logger.error("Erreur de connexion à un service externe", e);
-            return ResponseHandler.ResponseBuilder(
+            return ResponseHandler.responseBuilder()(
                     "Erreur réseau ou service indisponible",
                     HttpStatus.SERVICE_UNAVAILABLE,
                     null
@@ -165,7 +165,7 @@ public class SectionController {
 
         } catch (Exception e) {
             logger.error("Erreur interne inattendue", e);
-            return ResponseHandler.ResponseBuilder(
+            return ResponseHandler.responseBuilder()(
                     "Une erreur interne s'est produite",
                     HttpStatus.INTERNAL_SERVER_ERROR,
                     null
@@ -178,14 +178,14 @@ public class SectionController {
     public ResponseEntity<Object> getDetail(@PathVariable("id") Long id) {
        /* try {*/
             Section section = sectionService.getSectionById(id);
-            return ResponseHandler.ResponseBuilder(
+            return ResponseHandler.responseBuilder(
                     "La section id" + id,
                     HttpStatus.OK,
                     section
             );
 
        /* }catch (ApiExecptionHandler.UserNotFoundException e){
-            return ResponseHandler.ResponseBuilder(
+            return ResponseHandler.responseBuilder()(
                     e.getMessage(),
                     HttpStatus.NOT_FOUND,
                     null
@@ -194,7 +194,7 @@ public class SectionController {
 
     }catch (org.springframework.dao.DataAccessException e) {
             logger.error("Erreur d'accès à la base de données", e);
-            return ResponseHandler.ResponseBuilder(
+            return ResponseHandler.responseBuilder()(
                     "Erreur interne : problème d'accès aux données",
                     HttpStatus.INTERNAL_SERVER_ERROR,
                     null
@@ -202,7 +202,7 @@ public class SectionController {
 
         } catch (org.springframework.web.client.RestClientException e) {
             logger.error("Erreur de connexion à un service externe", e);
-            return ResponseHandler.ResponseBuilder(
+            return ResponseHandler.responseBuilder()(
                     "Erreur réseau ou service indisponible",
                     HttpStatus.SERVICE_UNAVAILABLE,
                     null
@@ -210,20 +210,20 @@ public class SectionController {
 
         } catch (Exception e) {
             logger.error("Erreur interne inattendue", e);
-            return ResponseHandler.ResponseBuilder(
+            return ResponseHandler.responseBuilder()(
                     "Une erreur interne s'est produite",
                     HttpStatus.INTERNAL_SERVER_ERROR,
                     null
             );
         }
 
-       // return ResponseHandler.ResponseBuilder("Détail de la section", HttpStatus.OK, section);*/
+       // return ResponseHandler.responseBuilder()("Détail de la section", HttpStatus.OK, section);*/
     }
     @DeleteMapping("/user/delete/{id}")
     public ResponseEntity<Object> deleteSection(@PathVariable("id") Long id) {
        // try {
             Section section = sectionService.deleteSection(id);
-            return ResponseHandler.ResponseBuilder(
+            return ResponseHandler.responseBuilder(
                     "Section modifié",
                     HttpStatus.OK,
                     section

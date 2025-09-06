@@ -12,8 +12,13 @@ import java.util.List;
 @Service
 public class BlogIServiceImplement implements BlogService {
 
-    private BlogRepository blogRepository;
-    private SectionRepository sectionRepository;
+    private final BlogRepository blogRepository;
+    private final SectionRepository sectionRepository;
+
+    public BlogIServiceImplement(BlogRepository blogRepository, SectionRepository sectionRepository) {
+        this.blogRepository = blogRepository;
+        this.sectionRepository = sectionRepository;
+    }
 
     @Override
     public List<Blog> getAllBlogs() {

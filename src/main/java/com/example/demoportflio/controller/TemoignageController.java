@@ -15,36 +15,36 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping()
 public class TemoignageController {
     private final TemoignageService temoignageService;
-    private static final Logger logger = LoggerFactory.getLogger(TemoignageController.class);
+
     public TemoignageController(TemoignageService temoignageService) {
         this.temoignageService = temoignageService;
     }
 
     @GetMapping("/add")
     public ResponseEntity<Object> addTemoignage(@Valid @RequestBody Temoignage temoignage) {
-            return ResponseHandler.ResponseBuilder("Temoignage cree avec success ", HttpStatus.OK, temoignageService.saveTemoignage(temoignage));
+            return ResponseHandler.responseBuilder("Temoignage cree avec success ", HttpStatus.OK, temoignageService.saveTemoignage(temoignage));
     }
 
 
     @PostMapping("/upadate")
     public ResponseEntity<Object> updateTemoignage(@RequestBody Temoignage temoignage) {
-            return  ResponseHandler.ResponseBuilder("Temoignage modifie avec success ", HttpStatus.OK, temoignageService.updateTemoignage(temoignage));
+            return  ResponseHandler.responseBuilder("Temoignage modifie avec success ", HttpStatus.OK, temoignageService.updateTemoignage(temoignage));
     }
 
 
     @GetMapping("/list")
     public ResponseEntity<Object> listTemoignages() {
-            return  ResponseHandler.ResponseBuilder("Liste des temoignages", HttpStatus.OK,  temoignageService.listTemoignage());
+            return  ResponseHandler.responseBuilder("Liste des temoignages", HttpStatus.OK,  temoignageService.listTemoignage());
     }
 
     @DeleteMapping("/delete/{id}")
     public  ResponseEntity<Object> deleteTemoignage(@PathVariable Long id) {
-            return  ResponseHandler.ResponseBuilder("Temoignages suprimé", HttpStatus.OK,  temoignageService.deleteTemoignage(id));
+            return  ResponseHandler.responseBuilder("Temoignages suprimé", HttpStatus.OK,  temoignageService.deleteTemoignage(id));
     }
 
     @DeleteMapping("/list/{id}")
     public  ResponseEntity<Object> listOneTemoignage(@PathVariable Long id) {
-            return  ResponseHandler.ResponseBuilder("Temoignages avec id "+ id, HttpStatus.OK,  temoignageService.getTemoignageById(id));
+            return  ResponseHandler.responseBuilder("Temoignages avec id "+ id, HttpStatus.OK,  temoignageService.getTemoignageById(id));
     }
 
 

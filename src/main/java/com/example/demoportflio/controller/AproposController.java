@@ -31,7 +31,7 @@ public class AproposController {
     public ResponseEntity<Object> createApropos(@Valid @RequestBody Apropos apropos) {
 
 
-        return ResponseHandler.ResponseBuilder(
+        return ResponseHandler.responseBuilder(
                 "Section ajoutée",
                 HttpStatus.OK,
                 aproposService.createApropos(apropos)
@@ -45,7 +45,7 @@ public class AproposController {
 
 
 
-            return ResponseHandler.ResponseBuilder(
+            return ResponseHandler.responseBuilder(
                     "Section modifié",
                     HttpStatus.OK,
                     aproposService.updateApropos(apropos)
@@ -57,7 +57,7 @@ public class AproposController {
     public ResponseEntity<Object> getDetail(@PathVariable("id") Long id) {
      /*   try {*/
             Apropos apropos = aproposService.getAproposById(id);
-            return ResponseHandler.ResponseBuilder(
+            return ResponseHandler.responseBuilder(
                     "Section modifié",
                     HttpStatus.OK,
                     apropos
@@ -71,14 +71,14 @@ public class AproposController {
 
          Long  idpath= aproposService.getAproposById(id).getId();
             Apropos apropos = aproposService.deleteApropos(idpath);
-          return   ResponseHandler.ResponseBuilder("A propos suprimé", HttpStatus.OK, apropos);
+          return   ResponseHandler.responseBuilder("A propos suprimé", HttpStatus.OK, apropos);
 
     }
 
       @GetMapping("/list")
     public ResponseEntity<Object> getAllApropos() {
 
-            return ResponseHandler.ResponseBuilder("Liste a propos", HttpStatus.OK, aproposService.getAllApropos());
+            return ResponseHandler.responseBuilder("Liste a propos", HttpStatus.OK, aproposService.getAllApropos());
 
         }
       }

@@ -19,31 +19,31 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/langues")
 public class LanguesController {
     private  final LanguesService languesService;
-    private static final Logger logger = LoggerFactory.getLogger(LanguesController.class);
+
     public LanguesController(LanguesService languesService) {
         this.languesService = languesService;
     }
     @PostMapping("/add")
     public ResponseEntity<Object> createLangues(@Valid @RequestBody Langues langues ) {
-            return ResponseHandler.ResponseBuilder("Langue créée", HttpStatus.CREATED, languesService.createLangues(langues));
+            return ResponseHandler.responseBuilder("Langue créée", HttpStatus.CREATED, languesService.createLangues(langues));
     }
     @GetMapping("/list")
     public ResponseEntity<Object> listLangues() {
-            return ResponseHandler.ResponseBuilder("Listes des langues", HttpStatus.OK,  languesService.getAllLangues());
+            return ResponseHandler.responseBuilder("Listes des langues", HttpStatus.OK,  languesService.getAllLangues());
     }
     @PostMapping("/update")
     public ResponseEntity<Object> updateLangues(@RequestBody Langues langues) {
-             return ResponseHandler.ResponseBuilder("Langues modifiée", HttpStatus.OK, languesService.updateLangues(langues));
+             return ResponseHandler.responseBuilder("Langues modifiée", HttpStatus.OK, languesService.updateLangues(langues));
     }
 
     @GetMapping("/list/{id}")
     public ResponseEntity<Object> listLangueDetail(@PathVariable Long id) {
-            return ResponseHandler.ResponseBuilder("Liste des langues "+ id, HttpStatus.OK, languesService.getLanguesById(id));
+            return ResponseHandler.responseBuilder("Liste des langues "+ id, HttpStatus.OK, languesService.getLanguesById(id));
     }
 
         @DeleteMapping("/delete/{id}")
         public ResponseEntity<Object> deleteLangue(@PathVariable Long id){
-                return ResponseHandler.ResponseBuilder("Langues avec id "+ id, HttpStatus.OK,  languesService.deleteLangues(id));
+                return ResponseHandler.responseBuilder("Langues avec id "+ id, HttpStatus.OK,  languesService.deleteLangues(id));
     }
 
 }

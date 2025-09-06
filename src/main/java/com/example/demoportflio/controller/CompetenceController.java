@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/competence/id/username")
 public class CompetenceController  {
-    private static final Logger logger = LoggerFactory.getLogger(CompetenceController.class);
+
     private final CompetenceService competenceService;
 
     public CompetenceController(CompetenceService competenceService) {
@@ -30,7 +30,7 @@ public class CompetenceController  {
 
 
 
-            return ResponseHandler.ResponseBuilder("Competence ajouté", HttpStatus.OK, competenceService.createCompetence(competence));
+            return ResponseHandler.responseBuilder("Competence ajouté", HttpStatus.OK, competenceService.createCompetence(competence));
 
 
     }
@@ -39,21 +39,21 @@ public class CompetenceController  {
 
 
 
-            return ResponseHandler.ResponseBuilder("Liste des compétences", HttpStatus.OK, competenceService.findAllCompetence());
+            return ResponseHandler.responseBuilder("Liste des compétences", HttpStatus.OK, competenceService.findAllCompetence());
 
 
     }
 
     @GetMapping("/list/{type}")
     public ResponseEntity<Object> listCompetencesByType(@PathVariable String type) {
-        return ResponseHandler.ResponseBuilder("certificats listés", HttpStatus.OK, competenceService.findByType(type) );
+        return ResponseHandler.responseBuilder("certificats listés", HttpStatus.OK, competenceService.findByType(type) );
     }
 
     @DeleteMapping("/delete/{idGroup}")
     public ResponseEntity<Object> deleteCompetence(@PathVariable String idGroup) {
 
 
-            return ResponseHandler.ResponseBuilder("Competence suprimé", HttpStatus.OK, competenceService.deleteCompetence(idGroup));
+            return ResponseHandler.responseBuilder("Competence suprimé", HttpStatus.OK, competenceService.deleteCompetence(idGroup));
 
 
 
@@ -61,11 +61,11 @@ public class CompetenceController  {
     }
     @PostMapping("/update")
     public  ResponseEntity<Object> updateCompetence( @Valid @RequestBody Competence competence) {
-        return  ResponseHandler.ResponseBuilder("Competence modifié", HttpStatus.OK, competenceService.updateCompetence(competence));
+        return  ResponseHandler.responseBuilder("Competence modifié", HttpStatus.OK, competenceService.updateCompetence(competence));
     }
     @GetMapping("/liste/{id}")
     public ResponseEntity<Object> getCompetenceById(@PathVariable Long id) {
-            return ResponseHandler.ResponseBuilder("Détail de la section", HttpStatus.OK, competenceService.findCompetenceById(id));
+            return ResponseHandler.responseBuilder("Détail de la section", HttpStatus.OK, competenceService.findCompetenceById(id));
 
         }
 

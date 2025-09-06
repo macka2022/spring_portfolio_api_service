@@ -24,27 +24,27 @@ public class BlogController {
 
     @PostMapping("/add")
     public ResponseEntity<Object> addBlog(@Valid  @RequestBody Blog blog) {
-            return ResponseHandler.ResponseBuilder("Blog Ajouté", HttpStatus.OK, blogService.addBlog(blog) );
+            return ResponseHandler.responseBuilder("Blog Ajouté", HttpStatus.OK, blogService.addBlog(blog) );
     }
 
     @GetMapping("/list")
     public ResponseEntity<Object> listBlog() {
-            return  ResponseHandler.ResponseBuilder("Liste des Blogs", HttpStatus.OK, blogService.getAllBlogs());
+            return  ResponseHandler.responseBuilder("Liste des Blogs", HttpStatus.OK, blogService.getAllBlogs());
     }
 
 
     @GetMapping("/list/{id}")
     public ResponseEntity<Object> listBlog(@PathVariable Long id) {
-            return ResponseHandler.ResponseBuilder("Blog ", HttpStatus.OK, blogService.getBlogById(id)) ;
+            return ResponseHandler.responseBuilder("Blog ", HttpStatus.OK, blogService.getBlogById(id)) ;
     }
 
     @PostMapping("/update")
     public ResponseEntity<Object> updateBlog(@Valid @RequestBody Blog blog) {
-            return  ResponseHandler.ResponseBuilder("Blog modifié",HttpStatus.OK, blogService.updateBlog(blog) );
+            return  ResponseHandler.responseBuilder("Blog modifié",HttpStatus.OK, blogService.updateBlog(blog) );
     }
     @DeleteMapping("delete/{id}")
     public ResponseEntity<Object> deleteBlog(@PathVariable Long id) {
-        return ResponseHandler.ResponseBuilder("Blog Suprimé", HttpStatus.OK, blogService.getBlogById(id));
+        return ResponseHandler.responseBuilder("Blog Suprimé", HttpStatus.OK, blogService.getBlogById(id));
     }
 
 }

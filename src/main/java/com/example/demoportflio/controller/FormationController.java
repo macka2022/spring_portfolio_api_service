@@ -26,32 +26,32 @@ public class FormationController {
     @PostMapping("/add")
     public ResponseEntity<Object> addFormation( @Valid  @RequestBody Formation formation) {
 
-            return ResponseHandler.ResponseBuilder("Formation ajouté", HttpStatus.OK,formationService.createFormation(formation));
+            return ResponseHandler.responseBuilder("Formation ajouté", HttpStatus.OK,formationService.createFormation(formation));
 
     }
     @PostMapping("/update")
     public ResponseEntity<Object> updateFormation(@Valid @RequestBody Formation formation ) {
-            return ResponseHandler.ResponseBuilder("Formation ajouté", HttpStatus.OK,formationService.updateFormation(formation));
+            return ResponseHandler.responseBuilder("Formation ajouté", HttpStatus.OK,formationService.updateFormation(formation));
     }
     @DeleteMapping("/delete/{groupId}")
     public ResponseEntity<Object> deleteFormation(@PathVariable String groupId) {
-            return ResponseHandler.ResponseBuilder("La formation a été supprimée", HttpStatus.OK,formationService.deleteFormation(groupId));
+            return ResponseHandler.responseBuilder("La formation a été supprimée", HttpStatus.OK,formationService.deleteFormation(groupId));
     }
     @GetMapping("user/{id}")
     public ResponseEntity<Object> getDetail(@PathVariable("id") Long id) {
 
-            return ResponseHandler.ResponseBuilder("Formation ajouté", HttpStatus.OK,formationService.getFormationById(id));
+            return ResponseHandler.responseBuilder("Formation ajouté", HttpStatus.OK,formationService.getFormationById(id));
 
     }
 
     @GetMapping("/list")
     public ResponseEntity<Object> getAllFormations() {
-            return ResponseHandler.ResponseBuilder("Formation ajouté", HttpStatus.OK,formationService.getAllFormation());
+            return ResponseHandler.responseBuilder("Formation ajouté", HttpStatus.OK,formationService.getAllFormation());
     }
 
     @GetMapping("/list/{type}")
     public ResponseEntity<Object> getFormationsByType(@PathVariable String type) {
-        return ResponseHandler.ResponseBuilder("Formation ajoutée", HttpStatus.OK,formationService.findByType(type));
+        return ResponseHandler.responseBuilder("Formation ajoutée", HttpStatus.OK,formationService.findByType(type));
     }
 
 }

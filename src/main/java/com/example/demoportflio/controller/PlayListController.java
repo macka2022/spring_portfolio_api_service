@@ -21,23 +21,23 @@ import org.springframework.web.bind.annotation.*;
 
     @PostMapping("/add")
     public ResponseEntity<Object> addPlayList(PlayList playList) {
-            return ResponseHandler.ResponseBuilder("Play liste Ajoutée", HttpStatus.OK,playListService.savePlayList(playList) );
+            return ResponseHandler.responseBuilder("Play liste Ajoutée", HttpStatus.OK,playListService.savePlayList(playList) );
     }
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Object> deletePlayList(@PathVariable Long id) {
             PlayList playList = playListService.getPlayListById(id);
-         return    ResponseHandler.ResponseBuilder("Play liste suprimée", HttpStatus.OK, playListService.deletePlayList(playList));
+         return    ResponseHandler.responseBuilder("Play liste suprimée", HttpStatus.OK, playListService.deletePlayList(playList));
     }
 
     @PostMapping("/modifify")
     public ResponseEntity<Object> modifyPlayList( @RequestBody PlayList playList){
-        return  ResponseHandler.ResponseBuilder("Playmist modifiée", HttpStatus.OK,playListService.updatePlayList(playList));
+        return  ResponseHandler.responseBuilder("Playmist modifiée", HttpStatus.OK,playListService.updatePlayList(playList));
     }
 
     @GetMapping("/list/{id}")
     public ResponseEntity<Object> getPlayListById(@PathVariable Long id) {
-        return  ResponseHandler.ResponseBuilder("playList Recupere", HttpStatus.OK, playListService.getPlayListById(id))  ;
+        return  ResponseHandler.responseBuilder("playList Recupere", HttpStatus.OK, playListService.getPlayListById(id))  ;
 
     }
 
