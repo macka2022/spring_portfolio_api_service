@@ -1,5 +1,6 @@
 package com.example.demoportflio.model;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.NotBlank;
@@ -72,11 +73,17 @@ public class Section {
     public void setSection(Sections section) {
         this.section = section;
     }
-
+    @SuppressFBWarnings(
+            value = "EI_EXPOSE_REP",
+            justification = "Relation JPA : référence mutable nécessaire pour Hibernate"
+    )
     public User getUser() {
         return user;
     }
-
+    @SuppressFBWarnings(
+            value = "EI_EXPOSE_REP2",
+            justification = "Relation JPA : référence mutable nécessaire pour Hibernate"
+    )
     public void setUser(User user) {
         this.user = user;
     }
