@@ -25,10 +25,9 @@ import java.util.Objects;
 
 @RequestMapping("/apropos/id/username")
 @RestController
-@AllArgsConstructor
-@NoArgsConstructor
-public class AproposController {
 
+public class AproposController {
+    @Autowired
     private AproposService aproposService;
 
     @PostMapping("/add")
