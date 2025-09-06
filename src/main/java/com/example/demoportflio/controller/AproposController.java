@@ -11,6 +11,7 @@ import jakarta.validation.Valid;
 import lombok.NonNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,6 +27,7 @@ public class AproposController {
 
     private final AproposService aproposService;
 
+    @Autowired
     public AproposController(@NonNull AproposService aproposService) {
         this.aproposService = Objects.requireNonNull(aproposService);
     }

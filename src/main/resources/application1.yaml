@@ -1,16 +1,9 @@
+
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5433/professionnel
-    username: postgres
-    password: passer
-    driver-class-name: org.postgresql.Driver
-    hikari:
-      maximum-pool-size: 10
-      minimum-idle: 2
-      connection-timeout: 30000
-      idle-timeout: 600000
-      max-lifetime: 1800000
-
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
   jpa:
     hibernate:
       ddl-auto: update
@@ -18,12 +11,4 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
-        format_sql: true
-    open-in-view: false
 
-# Niveau de logging pour le débogage
-logging:
-  level:
-    org.hibernate.SQL: DEBUG
-    com.zaxxer.hikari: DEBUG
-    org.springframework.jdbc: DEBUG
