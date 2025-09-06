@@ -1,4 +1,4 @@
-/*package com.example.demoportflio.model;
+package com.example.demoportflio.model;
 
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import jakarta.persistence.*;
@@ -68,6 +68,7 @@ public class PlayList {
             justification = "Relation JPA : référence mutable nécessaire pour Hibernate"
     )
 
+
     public void setSection(Section section) {
         this.section = section;
     }
@@ -77,4 +78,4 @@ public class PlayList {
         return id;
     }
 
-}*/
+}
