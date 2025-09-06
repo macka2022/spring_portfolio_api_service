@@ -5,8 +5,7 @@ import com.example.demoportflio.model.Certification;
 import com.example.demoportflio.response.ResponseHandler;
 import com.example.demoportflio.service.CertificationService;
 import jakarta.validation.Valid;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
