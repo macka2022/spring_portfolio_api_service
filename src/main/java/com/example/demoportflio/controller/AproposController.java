@@ -6,7 +6,9 @@ import com.example.demoportflio.model.Apropos;
 import com.example.demoportflio.model.Section;
 import com.example.demoportflio.response.ResponseHandler;
 import com.example.demoportflio.service.AproposService;
+
 import jakarta.validation.Valid;
+import lombok.NonNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
@@ -16,6 +18,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Objects;
 
 @RequestMapping("/apropos/id/username")
 @RestController
@@ -23,8 +26,8 @@ public class AproposController {
 
     private final AproposService aproposService;
 
-    public AproposController(AproposService aproposService) {
-        this.aproposService = aproposService;
+    public AproposController(@NonNull AproposService aproposService) {
+        this.aproposService = Objects.requireNonNull(aproposService);
     }
 
     @PostMapping("/add")

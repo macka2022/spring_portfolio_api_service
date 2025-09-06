@@ -5,6 +5,7 @@ import com.example.demoportflio.model.Section;
 import com.example.demoportflio.response.ResponseHandler;
 import com.example.demoportflio.service.SectionService;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,17 +13,19 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Objects;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 @RestController
 @RequestMapping("/section/id/username")
 public class SectionController {
-    private static final Logger logger = LoggerFactory.getLogger(SectionController.class);
+
 
     private final SectionService sectionService;
 
-    public SectionController(SectionService sectionService) {
-        this.sectionService = sectionService;
+    public SectionController(@NotBlank  SectionService sectionService) {
+        this.sectionService = Objects.requireNonNull(sectionService);;
     }
 
     @PostMapping("/add")

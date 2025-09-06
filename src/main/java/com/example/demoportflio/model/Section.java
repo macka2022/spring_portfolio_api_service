@@ -5,9 +5,17 @@ import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Section {
 
     @Id
@@ -30,11 +38,8 @@ public class Section {
    @Enumerated(EnumType.STRING)
     private Sections section;
 
-    public Section(Section section) {
-    }
 
-    public Section() {
-    }
+
 
     public enum Sections {
          Experiences, Temoignages, Apropos, Formations,
