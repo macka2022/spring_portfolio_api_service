@@ -19,7 +19,7 @@ public class CertificationController {
 
     private final CertificationService certificationService;
 
-    public CertificationController(CertificationService certificationService) {
+    public CertificationController(final CertificationService certificationService) {
         this.certificationService = certificationService;
     }
 
