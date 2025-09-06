@@ -2,6 +2,7 @@ package com.example.demoportflio.model;
 
 import com.example.demoportflio.exception.user.UniqueEmail;
 import com.example.demoportflio.exception.user.UniquePhone;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -220,10 +221,18 @@ public class Apropos {
     public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
     }
+    @SuppressFBWarnings(
+            value = "EI_EXPOSE_REP",
+            justification = "Relation JPA : référence mutable nécessaire pour Hibernate"
+    )
 
     public Section getSection() {
         return section ;
     }
+    @SuppressFBWarnings(
+            value = "EI_EXPOSE_REP2",
+            justification = "Relation JPA : référence mutable nécessaire pour Hibernate"
+    )
 
     public void setSection(Section section) {
         this.section =section;

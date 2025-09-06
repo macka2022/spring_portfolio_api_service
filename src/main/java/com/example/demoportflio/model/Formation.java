@@ -1,5 +1,6 @@
 package com.example.demoportflio.model;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -68,6 +69,7 @@ public class Formation {
 
     @ManyToOne
     @JoinColumn(name = "section_id")
+
     private Section section;
 
 
@@ -173,11 +175,18 @@ public class Formation {
     public void setDiplomate(boolean diplomate) {
         this.diplomate = diplomate;
     }
+    @SuppressFBWarnings(
+            value = "EI_EXPOSE_REP",
+            justification = "Relation JPA : référence mutable nécessaire pour Hibernate"
+    )
 
     public Section getSection() {
         return section;
     }
-
+    @SuppressFBWarnings(
+            value = "EI_EXPOSE_REP2",
+            justification = "Relation JPA : référence mutable nécessaire pour Hibernate"
+    )
     public void setSection(Section section) {
         this.section = section;
     }

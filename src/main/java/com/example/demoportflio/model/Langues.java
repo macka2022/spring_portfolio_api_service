@@ -1,5 +1,6 @@
 package com.example.demoportflio.model;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import jakarta.persistence.*;
 
 @Entity
@@ -28,7 +29,10 @@ public class Langues {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private Section section;
-
+    @SuppressFBWarnings(
+            value = "EI_EXPOSE_REP",
+            justification = "Relation JPA : référence mutable nécessaire pour Hibernate"
+    )
     public Section getSection() {
         return section;
     }
@@ -50,6 +54,11 @@ public class Langues {
     public void setNom(String nom) {
         this.nom = nom;
     }
+
+    @SuppressFBWarnings(
+            value = "EI_EXPOSE_REP2",
+            justification = "Relation JPA : référence mutable nécessaire pour Hibernate"
+    )
 
     public void setSection(Section section) {
         this.section = section;

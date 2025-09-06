@@ -1,5 +1,6 @@
 package com.example.demoportflio.model;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import jakarta.persistence.*;
 @Entity
 public class Hobbies {
@@ -53,6 +54,10 @@ public class Hobbies {
     public void setImage(String image) {
         this.image = image;
     }
+    @SuppressFBWarnings(
+            value = "EI_EXPOSE_REP",
+            justification = "Relation JPA : référence mutable nécessaire pour Hibernate"
+    )
 
     public Section getSection() {
         return section;
@@ -69,7 +74,10 @@ public class Hobbies {
     public void setTypes(Type types) {
         this.types = types;
     }
-
+    @SuppressFBWarnings(
+            value = "EI_EXPOSE_REP2",
+            justification = "Relation JPA : référence mutable nécessaire pour Hibernate"
+    )
     public void setSection(Section section) {
         this.section = section;
     }
