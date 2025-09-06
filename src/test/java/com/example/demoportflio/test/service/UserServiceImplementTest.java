@@ -41,7 +41,7 @@ class UserServiceImplementTest {
         Mockito.when(userRepository.existsByEmail("test@example.com")).thenReturn(false);
         Mockito.when(userRepository.save(user)).thenReturn(user);
 
-        User result = userService.CreateUser(user);
+        User result = userService.createUser(user);
 
         assertNotNull(result);
         assertEquals("test@example.com", result.getEmail());
@@ -58,7 +58,7 @@ class UserServiceImplementTest {
         Mockito.when(userRepository.existsByEmail("exists@example.com")).thenReturn(true);
 
         Exception exception = assertThrows(ApiExecptionHandler.UserAlreadyExistsException.class, () -> {
-            userService.CreateUser(user);
+            userService.createUser(user);
         });
 
         assertTrue(exception.getMessage().contains("Un utilisateur avec cet email existe déjà."));
