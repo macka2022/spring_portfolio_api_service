@@ -30,18 +30,16 @@
         <properties>
             <java.version>17</java.version>
 
-            <!-- SonarQube -->
-            <sonar.projectKey>demoportflio</sonar.projectKey>
-            <sonar.organization>ton_organization_key</sonar.organization>
+            <sonar.projectKey>spring_portfolio_api_service</sonar.projectKey>
+            <sonar.organization>macka2022</sonar.organization>
             <sonar.host.url>https://sonarcloud.io</sonar.host.url>
 
-            <!-- Répertoire racine et sources -->
             <sonar.sources>src/main/java</sonar.sources>
             <sonar.tests>src/test/java</sonar.tests>
             <sonar.java.binaries>target/classes</sonar.java.binaries>
             <sonar.coverage.jacoco.xmlReportPaths>target/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
 
-            <!-- Exclure certains fichiers si besoin -->
+
             <sonar.exclusions>**/resources/**, **/application.properties</sonar.exclusions>
 
         <java.version>17</java.version>
