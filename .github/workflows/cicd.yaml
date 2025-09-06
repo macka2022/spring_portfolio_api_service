@@ -49,9 +49,12 @@ jobs:
       - name: SonarCloud Scan
         uses: SonarSource/sonarqube-scan-action@v5
         env:
-          SONAR_TOKEN: ${{ secrets.TOKEN_SONAR }}
-        with:
-          projectBaseDir: ./
+          SONAR_TOKEN: ${{ secrets.TOKEN_SONAR}}
+          run: mvn clean verify sonar:sonar \
+            -Dsonar.projectKey=spring_portfolio_api_service \
+            -Dsonar.organization=macka2022 \
+            -Dsonar.host.url=https://sonarcloud.io \
+            -Dsonar.login=$SONAR_TOKEN
   security-check:
     name: Security Analysis
     runs-on: ubuntu-latest
