@@ -20,7 +20,7 @@ public class UserServiceImplement implements UserService {
 
 
     @Override
-    public User CreateUser(User user) {
+    public User createUser(User user) {
         boolean existsByEmail = userRepository.existsByEmail(user.getEmail());
         if (existsByEmail) {
             throw new ApiExecptionHandler.UserAlreadyExistsException("Un utilisateur avec cet email existe déjà.");

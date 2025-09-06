@@ -71,7 +71,7 @@ public class UserController {
                     HttpStatus.INTERNAL_SERVER_ERROR,
                     null);
         }*/
-        return ResponseHandler.responseBuilder("Ajouté utilisateur", HttpStatus.OK, userService.CreateUser(user) );
+        return ResponseHandler.responseBuilder("Ajouté utilisateur", HttpStatus.OK, userService.createUser(user) );
     }
 
 

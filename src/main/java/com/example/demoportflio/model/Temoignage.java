@@ -7,8 +7,6 @@ import jakarta.validation.constraints.Size;
 @Entity
 public class Temoignage {
 
-
-
     @Id
     @SequenceGenerator(
             name = "temoi_seq",               // logique Hibernate
@@ -67,7 +65,6 @@ public class Temoignage {
     public void setSection(Section section) {
         this.section = section;
     }
-
     public String getDescription() {
         return description;
     }
