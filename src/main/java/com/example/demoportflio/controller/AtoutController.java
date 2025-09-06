@@ -6,6 +6,7 @@ import com.example.demoportflio.response.ResponseHandler;
 import com.example.demoportflio.service.AtoutService;
 import jakarta.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
@@ -15,12 +16,10 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/atout")
 public class AtoutController {
 
+    @Autowired
+    private  AtoutService atoutService;
 
-    private final  AtoutService atoutService;
 
-    public AtoutController(AtoutService atoutService) {
-        this.atoutService = atoutService;
-    }
 
     @GetMapping("/list")
     public ResponseEntity<Object>  listCertification() {
