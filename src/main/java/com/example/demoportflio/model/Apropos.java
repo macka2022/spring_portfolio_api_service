@@ -75,7 +75,13 @@ public class Apropos {
     private String telephone;
 
     @ManyToOne
+//    @JoinColumn(name = "section_id")
+
     @JoinColumn(name = "section_id")
+   // @edu.umd.cs.findbugs.annotations.SuppressFBWarnings(
+       //     value = {"EI_EXPOSE_REP", "EI_EXPOSE_REP2"},
+       //     justification = "Exposition normale d'une relation JPA, nécessaire pour Hibernate"
+   // )
     private Section section;
 
 
@@ -216,10 +222,11 @@ public class Apropos {
     }
 
     public Section getSection() {
-        return section;
+        return section ;
     }
 
     public void setSection(Section section) {
-        this.section = section;
+        this.section =section;
     }
+
 }

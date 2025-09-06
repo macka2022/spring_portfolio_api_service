@@ -17,20 +17,22 @@ public class UniqueEmailValidator implements ConstraintValidator<UniqueEmail, St
 
     //private  static UserRepository staticAproposRepository;
 
-    private static UserRepository staticUserRepository;
+    private UserRepository userRepository;
 
-
+    public UniqueEmailValidator(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     @Autowired
     public void setUserRepository(UserRepository userRepository) {
-        UniqueEmailValidator.staticUserRepository = userRepository;
+        this.userRepository = userRepository;
     }
 
 
     @Override
     public boolean isValid(String email, ConstraintValidatorContext context) {
         if (email == null) return true; // @NotBlank gère déjà ça
-        return !staticUserRepository.existsByEmail(email) ;
+        return !userRepository.existsByEmail(email) ;
 
     }
 }

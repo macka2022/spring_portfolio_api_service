@@ -30,6 +30,12 @@ public class Section {
    @Enumerated(EnumType.STRING)
     private Sections section;
 
+    public Section(Section section) {
+    }
+
+    public Section() {
+    }
+
     public enum Sections {
          Experiences, Temoignages, Apropos, Formations,
         Competences , Langues, Loisirs,
