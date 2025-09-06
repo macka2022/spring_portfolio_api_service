@@ -27,8 +27,12 @@ import java.util.Objects;
 @RestController
 
 public class AproposController {
-    @Autowired
-    private AproposService aproposService;
+
+    private final AproposService aproposService;
+
+    public AproposController(final AproposService aproposService) {
+        this.aproposService = aproposService;
+    }
 
     @PostMapping("/add")
     public ResponseEntity<Object> createApropos(@Valid @RequestBody Apropos apropos) {
