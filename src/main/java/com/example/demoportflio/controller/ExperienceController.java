@@ -60,7 +60,7 @@ public class ExperienceController {
 
 
     @DeleteMapping("/delete/{idGroup}")
-    public ResponseEntity<Object> DeleteExperience(@PathVariable String idGroup) {
+    public ResponseEntity<Object> deleteExperience(@PathVariable String idGroup) {
             return ResponseHandler.responseBuilder("Experience n'existe pas", HttpStatus.OK, experienceService.deleteExperience(idGroup));
 
     }

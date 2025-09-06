@@ -171,7 +171,7 @@ public class Formation {
     }
 
     public void setDiplomate(boolean diplomate) {
-        diplomate = diplomate;
+        this.diplomate = diplomate;
     }
 
     public Section getSection() {
