@@ -7,6 +7,7 @@ import com.example.demoportflio.model.Section;
 import com.example.demoportflio.response.ResponseHandler;
 import com.example.demoportflio.service.AproposService;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -27,6 +28,10 @@ import java.util.Objects;
 @RestController
 
 public class AproposController {
+
+
+    @SuppressFBWarnings(value = "EI_EXPOSE_REP2")
+
 
     private final AproposService aproposService;
 
