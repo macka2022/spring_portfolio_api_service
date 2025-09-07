@@ -12,8 +12,8 @@ public interface CertificationRepository extends JpaRepository<Certification, Lo
     public List<Certification> findByGroupId(String groupId);
 
 
-    public List<Certification> findByTypes(Certification.Type type);
-    public boolean  existsByTitreAndOrganismeAndDateAndTypesAndSection(
+     List<Certification> findByTypes(Certification.Type type);
+    boolean  existsByTitreAndOrganismeAndDateAndTypesAndSection(
             String titre,
             String organisme,
             java.sql.Date date,

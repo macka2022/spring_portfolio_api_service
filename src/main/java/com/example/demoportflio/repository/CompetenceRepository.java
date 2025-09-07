@@ -9,6 +9,6 @@ import java.util.List;
 
 public interface CompetenceRepository extends JpaRepository<Competence, Long> {
     List<Competence> findByTypes(Competence.Type types);
-    public List<Competence> findByGroupId(String groupId);
-    public  boolean existsByNiveauAndDescriptionAndTypesAndSectionAndNom( String niveau,  String description, Competence.Type types, Section section,  String nom);
+    List<Competence> findByGroupId(String groupId);
+    boolean existsByNiveauAndDescriptionAndTypesAndSectionAndNom( String niveau,  String description, Competence.Type types, Section section,  String nom);
 }
