@@ -6,7 +6,7 @@ WORKDIR /app
 
 # 3. Copier le fichier jar du projet dans le conteneur
 # Assure-toi que ton .jar est déjà buildé avec Maven/Gradle dans target/
-COPY target/demoportflio-0.0.1-SNAPSHOT.jar app.jar
+COPY target/*.jar app.jar
 
 # 4. Exposer le port utilisé par Spring Boot (par défaut 8080)
 EXPOSE 8080
