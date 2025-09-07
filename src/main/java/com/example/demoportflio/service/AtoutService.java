@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface AtoutService {
 
-    public List<Atout> getAllSkills();
-    public Atout getAtoutById(Long id);
-    public Atout updateAtout(Atout to);
-    public Atout deleteAtout(Long id);
-    public Atout addAtout(Atout to);
+     List<Atout> getAllSkills();
+     Atout getAtoutById(Long id);
+     Atout updateAtout(Atout to);
+     Atout deleteAtout(Long id);
+     Atout addAtout(Atout to);
 }

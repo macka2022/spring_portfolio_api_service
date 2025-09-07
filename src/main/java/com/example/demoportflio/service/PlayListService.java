@@ -6,10 +6,10 @@ import java.util.List;
 
 public interface PlayListService {
 
-    public List<PlayList> getAllPlayLists();
-    public PlayList getPlayListById(Long id);
-    public PlayList savePlayList(PlayList playList);
-    public PlayList deletePlayList(PlayList playList);
-    public PlayList updatePlayList(PlayList playList);
+     List<PlayList> getAllPlayLists();
+     PlayList getPlayListById(Long id);
+     PlayList savePlayList(PlayList playList);
+     PlayList deletePlayList(PlayList playList);
+     PlayList updatePlayList(PlayList playList);
 
 }
