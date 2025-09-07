@@ -115,4 +115,4 @@ jobs:
         run: docker build -t macka/demoportflio:latest .
 
       - name: Push Docker image
-        run: docker push macka/demoportflio:latest
+        run: docker push ${{secrets.DOCKER_HUB_USERNAME}}/demoportflio:latest
