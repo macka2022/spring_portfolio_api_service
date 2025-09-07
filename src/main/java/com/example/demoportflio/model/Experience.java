@@ -227,19 +227,32 @@ public class Experience {
         this.realisation = realisation;
     }
 
-
+    @SuppressFBWarnings(
+            value = "EI_EXPOSE_REP",
+            justification = "Relation JPA : référence mutable nécessaire pour Hibernate"
+    )
 
     public Date getCreatedAt() {
         return createdAt;
     }
-
+    @SuppressFBWarnings(
+            value = "EI_EXPOSE_REP2",
+            justification = "Relation JPA : référence mutable nécessaire pour Hibernate"
+    )
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
     }
-
+    @SuppressFBWarnings(
+            value = "EI_EXPOSE_REP",
+            justification = "Relation JPA : référence mutable nécessaire pour Hibernate"
+    )
     public Date getUpdatedAt() {
         return updatedAt;
     }
+    @SuppressFBWarnings(
+            value = "EI_EXPOSE_REP2",
+            justification = "Relation JPA : référence mutable nécessaire pour Hibernate"
+    )
 
     public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
