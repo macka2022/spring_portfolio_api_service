@@ -183,10 +183,17 @@ public class Experience {
     public LocalDate getDateDebut() {
         return dateDebut;
     }
-
+    @SuppressFBWarnings(
+            value = "EI_EXPOSE_REP2",
+            justification = "Relation JPA : référence mutable nécessaire pour Hibernate"
+    )
     public void setDateDebut(LocalDate dateDebut) {
         this.dateDebut = dateDebut;
     }
+    @SuppressFBWarnings(
+            value = "EI_EXPOSE_REP",
+            justification = "Relation JPA : référence mutable nécessaire pour Hibernate"
+    )
 
     public LocalDate getDateFin() {
         return dateFin;

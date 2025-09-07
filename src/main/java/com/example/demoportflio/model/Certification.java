@@ -108,14 +108,22 @@ public class Certification {
     public void setGroupId(String groupId) {
         this.groupId = groupId;
     }
-
+    @SuppressFBWarnings(
+            value = "EI_EXPOSE_REP",
+            justification = "Relation JPA : référence mutable nécessaire pour Hibernate"
+    )
     public Date getDate() {
         return date;
     }
 
+    @SuppressFBWarnings(
+            value = "EI_EXPOSE_REP2",
+            justification = "Relation JPA : référence mutable nécessaire pour Hibernate"
+    )
     public void setDate(Date date) {
         this.date = date;
     }
+
 
     public String getDescription() {
         return description;
