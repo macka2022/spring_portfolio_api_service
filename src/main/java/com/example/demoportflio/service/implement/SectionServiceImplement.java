@@ -1,18 +1,18 @@
 package com.example.demoportflio.service.implement;
 
 import com.example.demoportflio.exception.user.ApiExecptionHandler;
-import com.example.demoportflio.exception.user.ApiRequestException;
+
 import com.example.demoportflio.model.Section;
 import com.example.demoportflio.model.User;
 import com.example.demoportflio.repository.SectionRepository;
 import com.example.demoportflio.repository.UserRepository;
 import com.example.demoportflio.service.SectionService;
-import org.springframework.http.ResponseEntity;
+
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ServerErrorException;
+
 
 import java.util.List;
-import java.util.Optional;
+
 
 @Service
 public class SectionServiceImplement implements SectionService {

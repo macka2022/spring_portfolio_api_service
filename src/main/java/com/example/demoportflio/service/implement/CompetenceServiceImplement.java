@@ -1,16 +1,14 @@
 package com.example.demoportflio.service.implement;
 
 import com.example.demoportflio.exception.user.ApiExecptionHandler;
-import com.example.demoportflio.exception.user.ApiRequestException;
-import com.example.demoportflio.model.Certification;
+
 import com.example.demoportflio.model.Competence;
-//import com.example.demoportflio.model.Section;
+
 import com.example.demoportflio.model.Section;
 import com.example.demoportflio.repository.CompetenceRepository;
 import com.example.demoportflio.repository.SectionRepository;
 import com.example.demoportflio.service.CompetenceService;
-import com.example.demoportflio.service.SectionService;
-import jakarta.persistence.EntityNotFoundException;
+
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

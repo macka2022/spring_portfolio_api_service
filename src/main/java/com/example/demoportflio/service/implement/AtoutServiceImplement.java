@@ -1,12 +1,12 @@
 package com.example.demoportflio.service.implement;
 
 import com.example.demoportflio.exception.user.ApiExecptionHandler;
-import com.example.demoportflio.exception.user.ApiRequestException;
+
 import com.example.demoportflio.model.Atout;
-import com.example.demoportflio.model.Certification;
+
 import com.example.demoportflio.repository.AtoutRepository;
 import com.example.demoportflio.service.AtoutService;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -2,10 +2,10 @@ package com.example.demoportflio.service.implement;
 
 import com.example.demoportflio.exception.user.ApiExecptionHandler;
 import com.example.demoportflio.model.Apropos;
-import com.example.demoportflio.model.Experience;
+
 import com.example.demoportflio.model.Section;
 import com.example.demoportflio.repository.AproposRepository;
-import com.example.demoportflio.repository.ExperienceRepository;
+
 import com.example.demoportflio.repository.SectionRepository;
 import com.example.demoportflio.service.AproposService;
 import org.springframework.stereotype.Service;

@@ -1,15 +1,15 @@
 package com.example.demoportflio.service.implement;
 
 import com.example.demoportflio.exception.user.ApiExecptionHandler;
-import com.example.demoportflio.exception.user.ApiRequestException;
+
 import com.example.demoportflio.model.Certification;
 import com.example.demoportflio.model.Section;
-import com.example.demoportflio.model.User;
+
 import com.example.demoportflio.repository.CertificationRepository;
 import com.example.demoportflio.repository.SectionRepository;
-import com.example.demoportflio.repository.UserRepository;
+
 import com.example.demoportflio.service.CertificationService;
-import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

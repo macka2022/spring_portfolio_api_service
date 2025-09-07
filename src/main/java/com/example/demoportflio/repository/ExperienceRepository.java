@@ -1,6 +1,5 @@
 package com.example.demoportflio.repository;
 
-import com.example.demoportflio.model.Competence;
 import com.example.demoportflio.model.Experience;
 import com.example.demoportflio.model.Section;
 import jakarta.validation.constraints.NotBlank;
@@ -8,7 +7,6 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
 

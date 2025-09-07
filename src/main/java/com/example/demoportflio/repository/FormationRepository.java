@@ -1,6 +1,5 @@
 package com.example.demoportflio.repository;
 
-import com.example.demoportflio.model.Experience;
 import com.example.demoportflio.model.Formation;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

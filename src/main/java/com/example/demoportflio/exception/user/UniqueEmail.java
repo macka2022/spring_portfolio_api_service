@@ -1,6 +1,6 @@
 package com.example.demoportflio.exception.user;
 
-import com.example.demoportflio.exception.user.UniqueEmailValidator;
+
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
 

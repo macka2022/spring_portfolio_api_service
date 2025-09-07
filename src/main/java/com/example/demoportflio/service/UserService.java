@@ -1,7 +1,7 @@
 package com.example.demoportflio.service;
 
 import com.example.demoportflio.model.User;
-import org.springframework.stereotype.Service;
+
 
 import java.util.List;
 

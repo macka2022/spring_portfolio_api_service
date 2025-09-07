@@ -7,8 +7,6 @@ import com.example.demoportflio.response.ResponseHandler;
 import com.example.demoportflio.service.CompetenceService;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import jakarta.validation.Valid;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

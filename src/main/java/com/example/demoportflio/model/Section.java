@@ -2,10 +2,9 @@ package com.example.demoportflio.model;
 
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.NotBlank;
+
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

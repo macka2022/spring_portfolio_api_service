@@ -1,7 +1,7 @@
 package com.example.demoportflio.service;
 
 import com.example.demoportflio.model.Apropos;
-import com.example.demoportflio.model.Experience;
+
 
 import java.util.List;
 

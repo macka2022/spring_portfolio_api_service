@@ -1,14 +1,14 @@
 package com.example.demoportflio.service.implement;
 
 import com.example.demoportflio.exception.user.ApiExecptionHandler;
-import com.example.demoportflio.model.Experience;
+
 import com.example.demoportflio.model.Formation;
 import com.example.demoportflio.model.Section;
 import com.example.demoportflio.repository.FormationRepository;
 import com.example.demoportflio.repository.SectionRepository;
 import com.example.demoportflio.service.FormationService;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
+
 
 import java.util.ArrayList;
 import java.util.List;

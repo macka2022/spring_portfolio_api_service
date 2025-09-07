@@ -2,10 +2,10 @@ package com.example.demoportflio.service.implement;
 
 import com.example.demoportflio.exception.user.ApiExecptionHandler;
 import com.example.demoportflio.exception.user.ApiRequestException;
-import com.example.demoportflio.model.Competence;
+
 import com.example.demoportflio.model.Section;
 import com.example.demoportflio.model.Temoignage;
-import com.example.demoportflio.model.User;
+
 import com.example.demoportflio.repository.SectionRepository;
 import com.example.demoportflio.repository.TemoignageRepository;
 import com.example.demoportflio.service.TemoignageService;

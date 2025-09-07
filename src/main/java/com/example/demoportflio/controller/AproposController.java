@@ -1,28 +1,20 @@
 package com.example.demoportflio.controller;
 
-import com.example.demoportflio.exception.user.ApiExecptionHandler;
+
 import com.example.demoportflio.model.Apropos;
 
-import com.example.demoportflio.model.Section;
+
 import com.example.demoportflio.response.ResponseHandler;
 import com.example.demoportflio.service.AproposService;
 
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import jakarta.validation.Valid;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.support.DefaultMessageSourceResolvable;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.BindingResult;
+
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.Objects;
 
 @RequestMapping("/apropos/id/username")
 @RestController

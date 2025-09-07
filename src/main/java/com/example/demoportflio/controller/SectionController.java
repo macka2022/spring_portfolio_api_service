@@ -1,13 +1,13 @@
 package com.example.demoportflio.controller;
 
-import com.example.demoportflio.exception.user.ApiExecptionHandler;
+
 import com.example.demoportflio.model.Section;
 import com.example.demoportflio.response.ResponseHandler;
 import com.example.demoportflio.service.SectionService;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
-import org.springframework.context.support.DefaultMessageSourceResolvable;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -16,8 +16,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Objects;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 @RestController
 @RequestMapping("/section/id/username")
 public class SectionController {

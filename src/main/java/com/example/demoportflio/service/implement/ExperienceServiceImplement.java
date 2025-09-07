@@ -1,8 +1,7 @@
 package com.example.demoportflio.service.implement;
 
 import com.example.demoportflio.exception.user.ApiExecptionHandler;
-import com.example.demoportflio.model.Apropos;
-import com.example.demoportflio.model.Certification;
+
 import com.example.demoportflio.model.Experience;
 import com.example.demoportflio.model.Section;
 

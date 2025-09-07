@@ -1,7 +1,6 @@
 package com.example.demoportflio.model;
 
-import com.example.demoportflio.exception.user.UniqueEmail;
-import com.example.demoportflio.exception.user.UniquePhone;
+
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
@@ -10,7 +9,7 @@ import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.w3c.dom.Text;
+
 
 import java.sql.Date;
 
