@@ -91,7 +91,7 @@ public class CompetenceServiceImplement implements CompetenceService {
         if (groupId == null || groupId.isEmpty()) {
             throw new ApiExecptionHandler.UserNotFoundException("GroupId invalide ou manquant.");
         }
-        List<com.example.demoportflio.model.Competence> deleteteCompts = competenceRepository.findByGroupId(groupId);
+        List<Competence> deleteteCompts = competenceRepository.findByGroupId(groupId);
         if (deleteteCompts.isEmpty() ) {
             System.out.println("groupId is null or empty");
             throw new ApiExecptionHandler.UserNotFoundException(

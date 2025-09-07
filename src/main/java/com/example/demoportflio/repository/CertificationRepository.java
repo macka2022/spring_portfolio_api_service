@@ -9,7 +9,7 @@ import java.util.List;
 
 @Repository
 public interface CertificationRepository extends JpaRepository<Certification, Long> {
-    public List<Certification> findByGroupId(String groupId);
+    List<Certification> findByGroupId(String groupId);
 
 
      List<Certification> findByTypes(Certification.Type type);

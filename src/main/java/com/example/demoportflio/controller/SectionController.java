@@ -24,7 +24,7 @@ public class SectionController {
     private final SectionService sectionService;
 
     public SectionController(@NotBlank  SectionService sectionService) {
-        this.sectionService = Objects.requireNonNull(sectionService);;
+        this.sectionService = Objects.requireNonNull(sectionService);
     }
 
     @PostMapping("/add")

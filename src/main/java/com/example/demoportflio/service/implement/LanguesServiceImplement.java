@@ -23,7 +23,7 @@ public class LanguesServiceImplement  implements LanguesService {
     @Override
     public Langues createLangues(Langues langues) {
         Long langueId= langues.getSection().getId();
-        Section languesFromDb = sectionRepository.findById((langueId))
+        Section languesFromDb = sectionRepository.findById(langueId)
                 .orElseThrow(() -> new RuntimeException("Section introuvable  avec l'ID : " + langueId));
 
         langues.setSection(languesFromDb);
