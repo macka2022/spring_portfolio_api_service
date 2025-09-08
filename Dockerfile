@@ -1,15 +1,15 @@
-# 1. Utiliser l'image Java officielle (avec JDK)
+# 1. Utiliser l'image Java officielle (JDK 17 léger)
 FROM eclipse-temurin:17-jdk-alpine
 
-# 2. Définir le répertoire de travail dans le conteneur
+# 2. Répertoire de travail dans le conteneur
 WORKDIR /app
 
-# 3. Copier le fichier jar du projet dans le conteneur
-# Assure-toi que ton .jar est déjà buildé avec Maven/Gradle dans target/
+# 3. Copier le JAR déjà buildé
 COPY target/*.jar app.jar
 
-# 4. Exposer le port utilisé par Spring Boot (par défaut 8080)
+# 4. Exposer le port (Render utilisera $PORT automatiquement)
 EXPOSE 8080
 
-# 5. Définir la commande pour démarrer l'application
-ENTRYPOINT ["java","-jar","app.jar"]
+# 5. Démarrer l'application avec la variable PORT de Render
+ENTRYPOINT ["sh", "-c", "java -jar app.jar --server.port=$PORT"]
+
