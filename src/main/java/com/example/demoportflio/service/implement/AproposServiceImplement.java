@@ -72,4 +72,9 @@ public class AproposServiceImplement implements AproposService {
         aproposRepository.delete(apropos);
         return apropos;
     }
+
+    @Override
+    public Apropos findBySectionUserId(Long userId) {
+        return aproposRepository.findBySectionUserId(userId);
+    }
 }

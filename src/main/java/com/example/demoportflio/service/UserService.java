@@ -10,4 +10,5 @@ public interface UserService {
      User createUser(User user);
      List<User> listUser();
     User activeDesactive(User user);
+    User getUserById(Long id);
 }

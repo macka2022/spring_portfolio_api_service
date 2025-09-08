@@ -11,4 +11,6 @@ public interface AproposService {
     Apropos getAproposById(Long id);
     Apropos updateApropos(Apropos apropos);
     Apropos deleteApropos(Long id);
+    Apropos findBySectionUserId(Long userId);
+
 }

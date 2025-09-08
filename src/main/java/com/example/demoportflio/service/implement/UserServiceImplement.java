@@ -42,6 +42,11 @@ public class UserServiceImplement implements UserService {
         return userRepository.save(existingUser);
     }
 
+    @Override
+    public User getUserById(Long id) {
+      return   userRepository.findById(id).orElseThrow(()-> new ApiExecptionHandler.UserNotFoundException("Utilisateur non trouvé"));
+
+    }
 
 
 }

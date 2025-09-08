@@ -27,6 +27,9 @@ public class UserController {
 
     }
 
+
+
+
     @PostMapping("/inscription")
     public ResponseEntity<Object> createUser(@Valid @RequestBody User user){
 
