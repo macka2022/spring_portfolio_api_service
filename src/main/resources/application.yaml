@@ -1,13 +1,13 @@
 spring:
   datasource:
-    url: jdbc:postgresql://dpg-d2v51fvfte5s73bo72qg-a.oregon-postgres.render.com:5432/portfolio_db_d7ks?sslmode=require
-    username: admin_portfolio
-    password: 37gASUoIR7g1EKokXK1rUd5UObo3MunH
+    url: ${SPRING_DATASOURCE_PASSWORD}?sslmode=require
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
     driver-class-name: org.postgresql.Driver
 
   jpa:
     hibernate:
-      ddl-auto: update      # update, validate ou create-drop selon ton besoin
+      ddl-auto: update
     show-sql: true
     properties:
       hibernate:
