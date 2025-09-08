@@ -9,7 +9,7 @@ import org.springframework.test.context.TestPropertySource;
 
 @ActiveProfiles("test")
 @SpringBootTest
-@TestPropertySource(locations = "classpath:application-test.yml")
+@TestPropertySource(locations = "classpath:application-test.yaml")
 class DemoportflioApplicationTests {
 
     @Test
