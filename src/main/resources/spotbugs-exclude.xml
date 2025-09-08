@@ -13,7 +13,7 @@
     <Match>
         <Or>
             <Bug pattern="EI_EXPOSE_REP2" />
-          <!--  <Bug pattern="UWF_UNWRITTEN_FIELD" /> -->
+          <!-- hh <Bug pattern="UWF_UNWRITTEN_FIELD" /> -->
            <!-- <Bug pattern="NP_UNWRITTEN_FIELD" />-->
         </Or>
         <Class name="~.*service" />
