@@ -36,22 +36,21 @@ public class AproposController {
     public ResponseEntity<String> getPortfolioPage(@PathVariable Long id) {
         Apropos propos = aproposService.findBySectionUserId(id);
 
-        if (propos == null) {
-            return ResponseEntity.notFound().build();
-        }
+        if (propos == null) return ResponseEntity.notFound().build();
+
 
         User user = propos.getSection().getUser();
 
         // Image par défaut si photo null
-        String photoUrl = (propos.getPhoto() != null && !propos.getPhoto().isEmpty())
+        String photoUrl = propos.getPhoto() != null && !propos.getPhoto().isEmpty()
                 ? propos.getPhoto()
                 : "https://via.placeholder.com/150";
 
         // Liens GitHub et LinkedIn par défaut si null
-        String gitUrl = (propos.getGit() != null && !propos.getGit().isEmpty())
+        String gitUrl = propos.getGit() != null && !propos.getGit().isEmpty()
                 ? propos.getGit()
                 : "#";
-        String linkedinUrl = (propos.getLinkedin() != null && !propos.getLinkedin().isEmpty())
+        String linkedinUrl = propos.getLinkedin() != null && !propos.getLinkedin().isEmpty()
                 ? propos.getLinkedin()
                 : "#";
 
