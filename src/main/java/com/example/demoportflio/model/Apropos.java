@@ -17,8 +17,8 @@ import java.sql.Date;
 public class Apropos {
     @Id
     @SequenceGenerator(
-            name = "propos_seq",               // logique Hibernate
-            sequenceName = "propos_sequence",  // objet séquence dans PostgreSQL
+            name = "propos_seq",
+            sequenceName = "propos_sequence",
             allocationSize = 1
     )
     @GeneratedValue(

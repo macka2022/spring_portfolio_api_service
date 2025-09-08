@@ -31,9 +31,7 @@ class AproposServiceImplementTest {
     @Mock
     private SectionRepository sectionRepository;
 
-    // ===============================
-    // Test createApropos
-    // ===============================
+
     @Test
     void testCreateApropos_Success() {
         Section section = new Section();
@@ -71,9 +69,7 @@ class AproposServiceImplementTest {
         assertTrue(exception.getMessage().contains("Section introuvable"));
     }
 
-    // ===============================
-    // Test getAllApropos
-    // ===============================
+
     @Test
     void testGetAllApropos() {
         Apropos apropos = new Apropos();
