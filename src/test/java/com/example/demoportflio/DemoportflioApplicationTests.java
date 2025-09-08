@@ -8,7 +8,6 @@ import org.springframework.test.context.ActiveProfiles;
 
 @ActiveProfiles("test")
 @SpringBootTest(
-        ,
         classes = DemoportflioApplication.class)
 class DemoportflioApplicationTests {
 
