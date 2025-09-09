@@ -25,7 +25,7 @@ public class AtoutController {
     public ResponseEntity<Object>  listCertification() {
             return ResponseHandler.responseBuilder("Liste des atouts", HttpStatus.OK, atoutService.getAllSkills());
     }
-//hhh
+//hhhf
 
         @PostMapping("/add")
         public ResponseEntity<Object> addCertification (@Valid @RequestBody Atout atout){
