@@ -109,12 +109,25 @@ public class AproposController {
 
     }
 
+    @PostMapping("/add")
+    public ResponseEntity<Object> createApropos(@Valid @RequestBody Apropos apropos) {
+
+
+
+        return ResponseHandler.responseBuilder(
+                "Section modifié",
+                HttpStatus.OK,
+                aproposService.createApropos(apropos)
+        );
+
+    }
+
     @GetMapping("/user/{id}")
     public ResponseEntity<Object> getDetail(@PathVariable("id") Long id) {
      /*   try {*/
             Apropos apropos = aproposService.getAproposById(id);
             return ResponseHandler.responseBuilder(
-                    "Section modifié",
+                    "Section recuperée",
                     HttpStatus.OK,
                     apropos
             );

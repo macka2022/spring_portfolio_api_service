@@ -9,7 +9,6 @@ import com.example.demoportflio.repository.AproposRepository;
 import com.example.demoportflio.repository.SectionRepository;
 import com.example.demoportflio.service.AproposService;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 @Service
 public class AproposServiceImplement implements AproposService {
